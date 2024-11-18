@@ -4,7 +4,12 @@ import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "rec
 import { Card } from "@/components/ui/card";
 import { formatNumber } from "@/lib/utils";
 
-export default function DepthChart({ orderbook }) {
+type Orderbook = {
+  bids: [number, number][];
+  asks: [number, number][];
+};
+
+export default function DepthChart({ orderbook }: { orderbook: Orderbook }) {
   const data = processDepthData(orderbook);
 
   return (
